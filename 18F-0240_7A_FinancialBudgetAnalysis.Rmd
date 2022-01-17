@@ -1,0 +1,60 @@
+---
+title: "18F-0240_7A_FinancialBudgettAnalysis"
+author: "18F-0240"
+date: "1/17/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+Github Link: "https://github.com/HuzaifahZia/FinancialBudget-Analysis.git"
+
+## Financial Budget Analysis
+
+```{r}
+library("dplyr")
+library("rwhatsapp")
+library("tidyr")
+library(qdap)
+library(stringr)
+library(ggplot2)
+library(scales)
+library(wordcloud)
+library(wordcloud2)
+library(RColorBrewer)
+library(emoji)
+library("tidytext")
+```
+
+
+```{r}
+financial=read.csv('India_budget_2021.csv')
+head(financial)
+```
+
+
+```{r}
+data=na.omit(financial)
+data = head(data)
+```
+
+
+
+```{r}
+barplot(drop_na$`Fund.allotted.in.â.¹crores.`,names.arg=drop_na$Department..Ministry)
+drop_na$`Fund.allotted.in.â.¹crores.`/sum(drop_na$`Fund.allotted.in.â.¹crores.`)*100
+```
+
+
+```{r}
+pie(drop_na$`Fund.allotted.in.â.¹crores.`/sum(drop_na$`Fund.allotted.in.â.¹crores.`)*100, labels = paste0(drop_na$`Fund.allotted.in.â.¹crores.`/sum(drop_na$`Fund.allotted.in.â.¹crores.`)*100, "%"))
+
+```
